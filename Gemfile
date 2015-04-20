@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails' 
 gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: :development
@@ -37,11 +37,11 @@ gem 'devise-token_authenticatable'
 gem 'acts_as_votable'
 
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 gem "figaro"
 
 gem 'pg', group: :production
-gem 'rails_12factor', group: :production
+gem 'rails_12factor', group: :production	
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
