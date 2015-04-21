@@ -1,7 +1,15 @@
 class TransactionsController < ApplicationController
-  def new
-  end
+  	before_action :set_movie
 
-  def create
-  end
+  	def new
+  	end
+
+  	def create
+  	end
+
+  	private
+
+  	def set_movie
+  		@movie = Movie.find(params[:id])
+	end
 end

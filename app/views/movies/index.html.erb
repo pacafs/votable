@@ -4,33 +4,5 @@
 <hr>
 
 <% @movies.each do |movie| %>
-  <div class="col-sm-6 col-md-4">
-      <div class="thumbnail thumb-box">
-
-      <h2 style="text-align:center;"><%= movie.title %></h2>
-        <%= image_tag( movie.my_url , size: "250x250" ) %>
-
-          <div class="caption" style="text-align:center;">
-            <%= link_to like_movie_path(movie),  class: "like", method: :put do %>
-               <button type="button" class="btn btn-info" aria-label="Left Align">
-                 <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
-                 <span class="badge"><%= movie.get_upvotes.size %></span>
-               </button>
-            <% end %> 
-
-            <%= link_to dislike_movie_path(movie), class: "like", method: :put do %>
-              <button type="button" class="btn btn-info" aria-label="Left Align"> 
-               <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
-               <span class="badge"><%= movie.get_downvotes.size %></span>
-              </button>  
-            <% end %>
-            <%= link_to purchase_movie_path(movie) do %>
-              <button type="button" class="btn btn-success" aria-label="Left Align">Buy now</button>  
-            <% end %>
-          </div>
-          <p><%= link_to "Delete", movie_path(movie), method: :delete %></p>
-          <p><%= movie.user.email %></p>
-
-      </div>
-    </div>
+  <%= render "movie", movie: movie %>  
 <% end %>

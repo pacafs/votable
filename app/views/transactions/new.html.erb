@@ -1,2 +1,9 @@
-<h1>Transactions#new</h1>
-<p>Find me in app/views/transactions/new.html.erb</p>
+<div class="col-sm-6 col-md-4">
+ 	<div class="thumbnail thumb-box">
+    	<%= image_tag( @movie.my_url , size: "300x300" ) %>
+  	</div>
+</div>
+<div class="col-sm-6 col-md-8">
+	<h1>Buy <%= @movie.title %></h1> 	
+	<%= render "form" %>  	
+</div>
