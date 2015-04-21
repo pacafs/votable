@@ -2,6 +2,7 @@ class TransactionsController < ApplicationController
   	before_action :set_movie
 
   	def new
+  		@client_token = Braintree::ClientToken.generate
   	end
 
   	def create
