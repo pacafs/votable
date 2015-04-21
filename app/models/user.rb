@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   
   has_many :movies
+  has_many :sales
+  
   before_save :ensure_authentication_token
  
   def ensure_authentication_token

@@ -1,5 +1,6 @@
 class Movie < ActiveRecord::Base
 	belongs_to :user
+	has_many :sales
  	acts_as_votable
  	
  	has_attached_file :avatar,
