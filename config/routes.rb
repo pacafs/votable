@@ -14,13 +14,16 @@ Rails.application.routes.draw do
 
   
   resources :movies do
-
     member do
       put "like" => "movies#upvote"
       put "dislike" => "movies#downvote"
     end
-
   end
+
+  resources :transactions, only: [:new, :create]
+
+  match "movies/:id/purchase", to: "transactions#new", as: "purchase_movie", via: :get
+  match "movies/:id/purchase", to: "transactions#create", as: "buy_movie", via: :post
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
