@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126030548) do
+ActiveRecord::Schema.define(version: 20150421145213) do
 
   create_table "movies", force: true do |t|
     t.string   "title"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150126030548) do
     t.datetime "avatar_updated_at"
     t.string   "my_url"
     t.integer  "user_id"
+    t.float    "price"
   end
 
   add_index "movies", ["cached_votes_down"], name: "index_movies_on_cached_votes_down"
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150126030548) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "authentication_token"
+    t.string   "customer_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
