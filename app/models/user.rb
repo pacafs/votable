@@ -9,8 +9,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  acts_as_voter
-  
+  acts_as_voter  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
 

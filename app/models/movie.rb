@@ -5,12 +5,9 @@ class Movie < ActiveRecord::Base
  	has_attached_file :avatar,
  	:path => ":class/:id/:filename",
     :url => ":class/:id/:filename"
-
-
+    
 	validates_attachment_content_type :avatar, 
 	:content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'],
 	:storage => :s3,
     :bucket => 'mytitanium'
-
-
 end
