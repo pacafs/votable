@@ -1,7 +1,11 @@
 class TransactionsController < ApplicationController
-  	before_action :set_movie
+  	before_action :set_movie, except: [:index]
     before_filter :authenticate_user!
   	
+    def index
+      @sales = current_user.sales
+    end
+
     def new
       @client_token = Braintree::ClientToken.generate(:customer_id => current_user.customer_id)
       respond_to do |format|
@@ -32,6 +36,7 @@ class TransactionsController < ApplicationController
         )
 
         if result.success?
+          current_user.sales.create(movie: @movie, amount: @movie.price)
           format.html {redirect_to movies_path, notice: "Movie successfully purchased"} 
         else
           p result.errors
